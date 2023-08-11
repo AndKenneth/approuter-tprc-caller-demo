@@ -1,5 +1,10 @@
-import { createCaller } from "~/server/api/root";
-
 export default function HomePage() {
-  return <div></div>;
+  return (
+    <div>
+      <p>
+        Above links are examples of the three different ways we can use trpc
+        routes within our app.
+      </p>
+    </div>
+  );
 }
