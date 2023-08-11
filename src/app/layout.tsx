@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className="container min-h-screen">
+      <body>
         {/* problems with the withTRPC HOC */}
         {/* @ts-expect-error type error  */}
         <AppProviders>{children}</AppProviders>
