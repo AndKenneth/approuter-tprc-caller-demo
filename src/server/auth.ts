@@ -68,9 +68,16 @@ export const authOptions: NextAuthOptions = {
  *
  * @see https://next-auth.js.org/configuration/nextjs
  */
-export const getServerAuthSession = (ctx: {
+export const getServerAuthSession = (ctx?: {
   req: GetServerSidePropsContext["req"];
   res: GetServerSidePropsContext["res"];
 }) => {
-  return getServerSession(ctx.req, ctx.res, authOptions);
+  if (ctx) return getServerSession(ctx.req, ctx.res, authOptions);
+  // getServerSession, when called in an RSC doesn't need the `req` and `res` arguments.
+  else return getServerSession(authOptions);
+};
+
+export const getUser = async () => {
+  const session = await getServerAuthSession();
+  return session?.user;
 };
