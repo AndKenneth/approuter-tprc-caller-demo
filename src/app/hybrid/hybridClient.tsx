@@ -2,14 +2,14 @@
 
 import { api } from "~/utils/api";
 
-export default function InitialViewer() {
+export default function HybridClient() {
   const messageQuery = api.example.hello.useQuery({
-    text: "initial viewer",
+    text: "hybrid viewer",
   });
 
   return (
     <div>
-      <h1>Initial</h1>
+      <h1>Hybrid</h1>
       <p>
         the trpc route is prefetched from a server component so the result is
         available immediately to the client component via cache, but full client
